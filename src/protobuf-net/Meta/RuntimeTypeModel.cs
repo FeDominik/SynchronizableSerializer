@@ -1329,6 +1329,7 @@ namespace ProtoBuf.Meta
             return Compile(options);
         }
 #endif
+        //#######################################################################################################################################################
         /// <summary>
         /// Fully compiles the current model into a static-compiled serialization dll
         /// (the serialization dll still requires protobuf-net for support services).
@@ -1367,7 +1368,7 @@ namespace ProtoBuf.Meta
 
             AssemblyName an = new AssemblyName { Name = assemblyName, Version = options.AssemblyVersion };
 #if PLAT_NO_EMITDLL
-            AssemblyBuilder asm = AssemblyBuilder.DefineDynamicAssembly(an,
+            AssemblyBuilder asm = AssemblyBuilder.DefineDynamicAssembly(an,//DefinePersistedAssembly
                 AssemblyBuilderAccess.RunAndCollect);
             ModuleBuilder module = asm.DefineDynamicModule(moduleName);
 #else
